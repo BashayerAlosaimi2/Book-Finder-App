@@ -1,0 +1,148 @@
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.BookDetailsFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/purple_700"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/purple_700">
+
+                <!--Image view for displaying our book image-->
+                <ImageView
+                    android:id="@+id/ivbookD"
+                    android:layout_width="130dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="18dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <!--Text view for displaying book publisher-->
+                    <TextView
+                        android:id="@+id/tvTitle1D"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="Title 1"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                    <!--text view for displaying number of pages of book-->
+                    <TextView
+                        android:id="@+id/tvCategoriesD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:padding="4dp"
+                        android:text="Categories"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                    <!--text view for displaying authors book-->
+                    <TextView
+                        android:id="@+id/tvAuthorsD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:padding="4dp"
+                        android:text="Authors"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                    <!--text view for displaying book publish date-->
+                    <TextView
+                        android:id="@+id/tvPublishDateD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:padding="4dp"
+                        android:text="Publish Date"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvTitle2D"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="4dp"
+                android:text="Title"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+            <!--text view for displaying book title-->
+
+            <!--text view for displaying book subtitle-->
+            <TextView
+                android:id="@+id/tvSubTitleD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="4dp"
+                android:text="subtitle"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <!--text view for displaying book description-->
+            <TextView
+                android:id="@+id/tvDescriptionD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="4dp"
+                android:text="description"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!--button for displaying book preview-->
+                <Button
+                    android:id="@+id/btnPreviewD"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:text="Preview"
+                    android:textAllCaps="false" />
+
+                <!--button for opening buying page of the book-->
+                <Button
+                    android:id="@+id/btnBuyD"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:text="Buy"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>

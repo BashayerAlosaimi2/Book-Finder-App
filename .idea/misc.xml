@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/fragment_book.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/fragment_book1.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/fragment_book_details.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/fragment_favorite.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/fragment_login.xml" value="0.17798913043478262" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/fragment_sign_up.xml" value="0.17798913043478262" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/fragment_splash.xml" value="0.22" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/item_email.xml" value="0.1796875" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/item_info.xml" value="0.1796875" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/profile.xml" value="0.1796875" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/layout/rv_books_item.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/BookFinder/app/src/main/res/menu/search_menu.xml" value="0.16666666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

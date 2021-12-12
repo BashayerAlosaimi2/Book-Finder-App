@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1082090389131",
+    "project_id": "book-finder-4b050",
+    "storage_bucket": "book-finder-4b050.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082090389131:android:4ff18a7b9c8c12c2b2de8e",
+        "android_client_info": {
+          "package_name": "com.tuwaiq.bookfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1082090389131-82tndnl0lu00hehmhv442mqijjffts7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-Gjq_RxENKIWEq-SefzkgN7KSe1kDJfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1082090389131-82tndnl0lu00hehmhv442mqijjffts7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
