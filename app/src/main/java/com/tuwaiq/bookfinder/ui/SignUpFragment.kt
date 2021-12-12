@@ -14,6 +14,7 @@ import com.tuwaiq.bookfinder.R
 import com.tuwaiq.bookfinder.data.model.Users
 
 
+
 class SignUpFragment : Fragment() {
     private lateinit var username: EditText
     private lateinit var emaile: EditText
