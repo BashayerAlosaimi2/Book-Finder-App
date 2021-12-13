@@ -5,19 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 import com.tuwaiq.bookfinder.R
+import com.tuwaiq.bookfinder.data.model.BooksData
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [BookDetailsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class BookDetailsFragment : Fragment() {
+    private lateinit var titleTV: TextView
+    private lateinit var subtitleTV: TextView
+    private lateinit var descriptionTV: TextView
+    private lateinit var authorsTV: TextView
+    private lateinit var categoryTV: TextView
+    private lateinit var thumbnailTV: TextView
+    private lateinit var titlePageCountTV: TextView
+    private lateinit var previewLinkTV: TextView
+    private lateinit var infoLinkBtn: Button
+    private lateinit var buyLinkBtn: Button
+    private var pageCountTV = -1
+    private lateinit var bookIV: ImageView
+
+   private val args: BookDetailsFragmentArgs by navArgs()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

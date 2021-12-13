@@ -1,10 +1,15 @@
 package com.tuwaiq.bookfinder.data.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
+
+@Parcelize
 data class BooksData (
     // val kind : String,
     //val totalItems : Int,
-    val items : List<VolumeInfo>  // ------- needed--------//
-)
+     val items : @RawValue List<VolumeInfo>  // ------- needed--------//
+): Parcelable
 
 data class VolumeInfo (
   //  val kind : String,

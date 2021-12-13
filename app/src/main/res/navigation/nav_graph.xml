@@ -49,6 +49,14 @@
     <fragment
         android:id="@+id/bookDetailsFragment"
         android:name="com.tuwaiq.bookfinder.ui.BookDetailsFragment"
-        android:label="fragment_book_details"
-        tools:layout="@layout/fragment_book_details" />
+        android:label=" fragment_book_details"
+        tools:layout="@layout/fragment_book_details" >
+
+        <argument
+            android:name="bookArgKey"
+            app:argType="com.tuwaiq.bookfinder.data.model.BooksData" />
+        <action
+            android:id="@+id/action_bookDetailsFragment_to_bookFragment2"
+            app:destination="@id/bookFragment" />
+    </fragment>
 </navigation>
