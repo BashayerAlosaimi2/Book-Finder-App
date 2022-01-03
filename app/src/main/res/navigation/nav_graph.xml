@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/bookFragment">
+    app:startDestination="@id/splash">
     <fragment
         android:id="@+id/splash"
         android:name="com.tuwaiq.bookfinder.ui.Splash"
@@ -11,7 +11,9 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splash_to_loginFragment2"
-            app:destination="@id/loginFragment2" />
+            app:destination="@id/loginFragment2"
+            app:popUpTo="@id/splash"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment2"
@@ -23,7 +25,9 @@
             app:destination="@id/signUpFragment2" />
         <action
             android:id="@+id/action_loginFragment2_to_bookFragment"
-            app:destination="@id/bookFragment" />
+            app:destination="@id/bookFragment"
+            app:popUpTo="@id/loginFragment2"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment2"
@@ -35,7 +39,9 @@
             app:destination="@id/loginFragment2" />
         <action
             android:id="@+id/action_signUpFragment2_to_bookFragment"
-            app:destination="@id/bookFragment" />
+            app:destination="@id/bookFragment"
+            app:popUpTo="@id/bookFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/bookFragment"
@@ -44,19 +50,64 @@
         tools:layout="@layout/fragment_book">
         <action
             android:id="@+id/action_bookFragment_to_bookDetailsFragment"
-            app:destination="@id/bookDetailsFragment" />
+            app:destination="@id/bookDetailsFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/from_top"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="mainBooksKey"
+            app:argType="com.tuwaiq.bookfinder.data.model.BooksData" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/bookDetailsFragment"
         android:name="com.tuwaiq.bookfinder.ui.BookDetailsFragment"
         android:label=" fragment_book_details"
-        tools:layout="@layout/fragment_book_details" >
+        tools:layout="@layout/fragment_book_details"
+        >
 
         <argument
-            android:name="bookArgKey"
-            app:argType="com.tuwaiq.bookfinder.data.model.BooksData" />
+            android:name="booksInfoKey"
+            app:argType="com.tuwaiq.bookfinder.data.model.BookInfo" />
         <action
-            android:id="@+id/action_bookDetailsFragment_to_bookFragment2"
-            app:destination="@id/bookFragment" />
+            android:id="@+id/action_bookDetailsFragment_to_bookFragment"
+            app:destination="@id/bookFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/from_bottom" />
+    </dialog>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.tuwaiq.bookfinder.ui.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.tuwaiq.bookfinder.ui.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_favoraiteDetailsFragment"
+            app:destination="@id/favoraiteDetailsFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/from_top" />
+    </fragment>
+    <dialog
+        android:id="@+id/favoraiteDetailsFragment"
+        android:name="com.tuwaiq.bookfinder.ui.FavoraiteDetailsFragment"
+        android:label="FavoraiteDetailsFragment"
+        tools:layout="@layout/fragment_favoraite_details">
+        <argument
+            android:name="favoraiteBooksKey"
+            app:argType="com.tuwaiq.bookfinder.data.model.Favorite" />
+        <action
+            android:id="@+id/action_favoraiteDetailsFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/from_bottom" />
+    </dialog>
 </navigation>

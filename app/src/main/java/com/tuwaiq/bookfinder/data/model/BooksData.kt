@@ -10,44 +10,41 @@ data class BooksData (
     //val totalItems : Int,
      val items : @RawValue List<VolumeInfo>  // ------- needed--------//
 ): Parcelable
-
+@Parcelize
 data class VolumeInfo (
   //  val kind : String,
     val id : String,
-    val volumeInfo : BookInfo,
-)
+    val volumeInfo : BookInfo
+): Parcelable{
+    var isFavBook: Boolean = false
+}
 
-
+@Parcelize
 data class ImageLinks (
     val smallThumbnail : String,
     val thumbnail : String
-)
-
+): Parcelable
+@Parcelize
 data class BookInfo(
 
-
-    val title : String?,  // ------- needed--------//
-     val subtitle : String?,  // ------- needed--------//
-    val authors : List<String>?,
+    val title : String?,
+     val subtitle : String?,
+    val authors : List<String>?  = listOf(""),
     //val publisher : String?,
     val publishedDate : String,
     val description : String?,
     val pageCount : Int?,
    // val infoLink : String,
-    val previewLink : String?,   // ------- needed--------//
-    //val buyLink : String,  // ------- needed--------//
-    // SA en
-  //  val language : String,
-    // for filter
-    val categories : List<String>?,
+    val previewLink : String?,
+    //val buyLink : String,
+    val categories : List<String>? = listOf(""),
     // for book image
-    val imageLinks : ImageLinks?,   // ------- needed--------//
-    // magazene or book
-    //val isEbook : Boolean,
+    val imageLinks : ImageLinks?,
     // pdf web link
     //val webReaderLink : String,
 
-)
+): Parcelable
+
 
 
 

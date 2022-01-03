@@ -10,4 +10,13 @@
 
     <color name="red">#FA0000</color>
     <color name="orange">#F37A2A</color>
+    <color name="orang">#E4B793</color>
+    <color name="babyblue">#9A9DBADA</color>
+    <color name="bigblue">#232957</color>
+    <color name="blue">#295281</color>
+    <color name="darkPurple">#3B3F5A</color>
+    <color name="purple">#75679E</color>
+    <color name="purplr2">#6C75679E</color>
+    <color name="offwhite">#F4EFEF</color>
+    <color name="darkRed">#AC0C00</color>
 </resources>

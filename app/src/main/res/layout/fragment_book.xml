@@ -11,7 +11,6 @@
     <!--recycler view for displaying our list of books-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBooks"
-        android:background="@color/purple_700"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
          />

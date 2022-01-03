@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SignUpFragment">
+
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:bottomLeftRadius="10dp"
@@ -16,8 +18,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -28,47 +29,81 @@
         tools:ignore="MissingConstraints" />
 
 
-    <EditText
-        android:id="@+id/et_username2"
-        android:layout_width="222dp"
-        android:layout_height="51dp"
-        android:hint="Enter your name"
-        android:selectAllOnFocus="true"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_usernameLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="@string/name_sign"
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="#FF0000"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-         />
+        app:startIconDrawable="@drawable/ic_baseline_person_24">
 
-    <EditText
-        android:id="@+id/et_email2"
-        android:layout_width="222dp"
-        android:layout_height="51dp"
-        android:hint="Enter your email"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_username2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_emailLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="@string/email_sign"
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="#FF0000"
+        app:layout_constraintEnd_toEndOf="@+id/et_usernameLayout"
+        app:layout_constraintStart_toStartOf="@+id/et_usernameLayout"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        />
+        app:startIconDrawable="@drawable/ic_email">
 
-    <EditText
-        android:id="@+id/et_password2"
-        android:layout_width="222dp"
-        android:layout_height="51dp"
-        android:hint="Enter your password"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_passwordLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="@string/password_sign"
+        app:endIconMode="password_toggle"
+        app:helperTextTextColor="#FF0000"
+        app:layout_constraintEnd_toEndOf="@+id/et_emailLayout"
+        app:layout_constraintStart_toStartOf="@+id/et_emailLayout"
+        app:layout_constraintTop_toBottomOf="@+id/et_emailLayout"
+        app:startIconDrawable="@drawable/ic_lock">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
 
     <TextView
         android:id="@+id/tv_log_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New? Click here"
+        android:text="@string/i_already_have_an_account"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
@@ -77,7 +112,7 @@
         android:id="@+id/btn_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="signup"
+        android:text="@string/signup_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline8" />
@@ -86,8 +121,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Or"
-        android:layout_marginLeft="30dp"
+        android:text="@string/or"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
          />
@@ -113,21 +147,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.82" />
+        app:layout_constraintGuide_percent="0.93" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.20194647" />
+        app:layout_constraintGuide_percent="0.11" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.67" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
