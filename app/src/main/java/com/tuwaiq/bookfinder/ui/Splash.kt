@@ -14,10 +14,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -29,6 +26,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.airbnb.lottie.LottieComposition
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.tuwaiq.bookfinder.R
 import kotlinx.android.synthetic.main.fragment_splash.*
 import kotlinx.coroutines.delay
@@ -36,7 +37,7 @@ import kotlinx.coroutines.delay
 
 class Splash : Fragment() {
 
-   // private lateinit var logo: ImageView
+    // private lateinit var logo: ImageView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -86,17 +87,27 @@ class Splash : Fragment() {
 
         LaunchedEffect(key1 = true) {
             startAnim = true
-            delay(2000)
+            delay(4000)
             nav.navigate(R.id.action_splash_to_loginFragment2)
         }
-
-        AnimateSplash(scaleAnim,rotateAnim)
+        Loader()
+        // AnimateSplash(scaleAnim,rotateAnim)
     }
 
     @Composable
+    fun Loader() {
+        val animationSpec by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.book_lottie))
+        LottieAnimation(
+            animationSpec,
+            modifier = Modifier.requiredSize(400.dp)
+        )
+    }/*
+    @Composable
     private fun AnimateSplash(scaleAnim: Size, rotateAnim: Float) {
         Column(
-            modifier= Modifier.fillMaxSize().background(if ( isSystemInDarkTheme()) Color.Black else Color.White),
+            modifier= Modifier
+                .fillMaxSize()
+                .background(if (isSystemInDarkTheme()) Color.Black else Color.White),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ){
@@ -108,6 +119,7 @@ class Splash : Fragment() {
             )
         }
 
-    }
+    }*/
+
 
 }

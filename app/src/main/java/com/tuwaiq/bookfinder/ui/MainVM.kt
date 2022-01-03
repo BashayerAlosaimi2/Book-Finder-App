@@ -21,13 +21,13 @@ class MainVM(context: Application) : AndroidViewModel(context) {
 
     val preferences = context.getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE)
 
-
+/*
     fun getUserDataFromRepo(){//}:Users {
        preferences.edit().putString(NAME, repo.userRetrivedData.username).apply()
 
         //return repo.userRetrivedData
 
-    }
+    }*/
 
     fun fetchBooksList(searchKeyWord: String? = null): LiveData<List<VolumeInfo>> {
         val books = MutableLiveData<List<VolumeInfo>>()
@@ -46,16 +46,10 @@ class MainVM(context: Application) : AndroidViewModel(context) {
     }
 
     fun userData(viewLifecycleOwner: LifecycleOwner) {
-
         viewModelScope.launch {
-
             repo.retrieveUserData().observe(viewLifecycleOwner,{
                 preferences.edit().putString(NAME, it).apply()
             })
-
-
-
-
         }
     }
 
