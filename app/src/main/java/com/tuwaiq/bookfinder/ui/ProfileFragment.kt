@@ -72,7 +72,7 @@ class ProfileFragment : Fragment() {
         val scaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up)
 
         preferences = requireContext().getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE)
-       vm.getUserDataFromRepo()
+
 
         val pName = preferences.getString(NAME, "")
         val pEmail = preferences.getString(EMAIL, "")

@@ -94,22 +94,22 @@ class AppRepo {
 
     }
 
-    suspend fun retrieveUserData() {
-
+    suspend fun retrieveUserData(): MutableLiveData<String> {
+        var userName = MutableLiveData<String>()
         withContext(Dispatchers.IO) {
             db.collection("Users").document("$uid").get().addOnCompleteListener() {
                 it.addOnSuccessListener { snapshot ->
                     snapshot?.let { docSnap ->
                         val user = docSnap.toObject(Users::class.java)
                         user?.let {
-                            userRetrivedData = user
+                            userName.postValue(user.username)
                         }
 
                     }
                 }
             }
         }
-
+        return userName
     }
 
 

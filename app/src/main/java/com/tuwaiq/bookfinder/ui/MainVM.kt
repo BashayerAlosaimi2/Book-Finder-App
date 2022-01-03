@@ -23,7 +23,7 @@ class MainVM(context: Application) : AndroidViewModel(context) {
 
 
     fun getUserDataFromRepo(){//}:Users {
-        preferences.edit().putString(NAME, repo.userRetrivedData.username).apply()
+       preferences.edit().putString(NAME, repo.userRetrivedData.username).apply()
 
         //return repo.userRetrivedData
 
@@ -45,15 +45,17 @@ class MainVM(context: Application) : AndroidViewModel(context) {
         return books
     }
 
-    fun userData() {
+    fun userData(viewLifecycleOwner: LifecycleOwner) {
 
         viewModelScope.launch {
-            repo.retrieveUserData()
 
-            /*  repo.retrieveUserData().observe(viewLifecycleOwner, {
-                  preferences.edit().putString(NAME, it.username).apply()
+            repo.retrieveUserData().observe(viewLifecycleOwner,{
+                preferences.edit().putString(NAME, it).apply()
+            })
 
-              })*/
+
+
+
         }
     }
 

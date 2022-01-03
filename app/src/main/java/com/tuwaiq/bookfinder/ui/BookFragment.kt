@@ -35,7 +35,8 @@ class BookFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-         vm.userData()
+         vm.userData(viewLifecycleOwner)
+       // vm.getUserDataFromRepo()
 
         booksRV = view.findViewById(R.id.rvBooks)
         booksRV.layoutManager  =
