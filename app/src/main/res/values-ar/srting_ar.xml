@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Book Finder</string>
+    <string name="logo_text">اليوم قارئ، غداً قائد</string>
+    <string name="name_sign">الإسم</string>
+    <string name="email_sign">الإيميل</string>
+    <string name="i_already_have_an_account">لدي حساب بالفعل</string>
+    <string name="password_sign">الرقم السري</string>
+    <string name="signup_btn">تسجيل</string>
+    <string name="or">أو</string>
+    <string name="remember_me">تذكرني</string>
+    <string name="create_an_account">إنشاء حساب</string>
+    <string name="login_btn">دخول</string>
+    <string name="preview">عرض</string>
+    <string name="title">العنوان: </string>
+    <string name="category">التصنيف: </string>
+    <string name="not_specified">غير محدد</string>
+    <string name="publish_date">تاريخ الإصدار: </string>
+    <string name="number_of_pages">عدد الصفحات: </string>
+    <string name="author">المؤلف: </string>
+    <string name="unknown">غير معروف</string>
+    <string name="dark_mood">الوضع الداكن</string>
+    <string name="sign_out">تسجيل خروج</string>
+    <string name="arabic">العربية</string>
+    <string name="your_information">المعلومات الشخصية</string>
+    <string name="settings">الإعدادات</string>
+</resources>

@@ -2,11 +2,13 @@ package com.tuwaiq.bookfinder.ui
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -21,9 +23,11 @@ class SignUpFragment : Fragment() {
     private lateinit var password: EditText
     private lateinit var tvlogin: TextView
     private lateinit var btnSignup: Button
-    private  var db  = FirebaseFirestore.getInstance()
-    private val ref1 = FirebaseAuth.getInstance()
 
+    private val ref1 = FirebaseAuth.getInstance()
+    private val vm by lazy {
+        ViewModelProvider(requireActivity())[MainVM::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,12 +46,11 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         btnSignup = view.findViewById(R.id.btn_signup)
         username = view.findViewById(R.id.et_username2)
         emaile = view.findViewById(R.id.et_email2)
         password = view.findViewById(R.id.et_password2)
-        tvlogin =view.findViewById(R.id.tv_log_in)
+        tvlogin = view.findViewById(R.id.tv_log_in)
         btnSignup.setOnClickListener {
 
 
@@ -74,7 +77,7 @@ class SignUpFragment : Fragment() {
                 }
                 else -> {
                     ref1.createUserWithEmailAndPassword(
-                        emaile.text.toString().trim().lowercase(),
+                        emaile.text.toString().trim().toLowerCase(),
                         password.text.toString().trim()
                     ).addOnCompleteListener { register ->
 
@@ -86,7 +89,7 @@ class SignUpFragment : Fragment() {
                                 "You were registered successfully",
                                 Toast.LENGTH_LONG
                             ).show()
-                            saveData(
+                            sendUserData(
                                 username.text.toString(),
                                 emaile.text.toString()
                             )
@@ -105,28 +108,69 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    private fun saveData(username: String, emaile: String, ) {
+    private fun sendUserData(username: String, emaile: String) {
 
         val user = Users(username, emaile)
         saveUserFireStore(user)
 
     }
 
-    private fun saveUserFireStore(user: Users){// = CoroutineScope(Dispatchers.IO).launch {
-        val uid = FirebaseAuth.getInstance().currentUser?.uid
-        try {
-            db.collection("Users").document("$uid").set(user).addOnSuccessListener {
-                Toast.makeText(context, "Successfully saved data.", Toast.LENGTH_SHORT).show()
-
-                findNavController().navigate(R.id.action_signUpFragment2_to_bookFragment)
-
-            }
-
-        } catch (e: Exception) {
-            //withContext(Dispatchers.Main) {
-                Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
-          //  }
+    private fun saveUserFireStore(user: Users) {// = CoroutineScope(Dispatchers.IO).launch {
+        //val uid = FirebaseAuth.getInstance().currentUser?.uid
+        vm.saveUserData(user)
+           // Toast.makeText(context, "Successfully saved data.", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_signUpFragment2_to_bookFragment)
+            //  findNavController().popBackStack()
         }
     }
-}
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*.show()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+        private fun sendUserData(username: String, emaile: String, ) {
+
+            val user = Users(username, emaile)
+            saveUserFireStore(user)
+
+        }
+
+        private fun saveUserFireStore(user: Users) {// = CoroutineScope(Dispatchers.IO).launch {
+            val uid = FirebaseAuth.getInstance().currentUser?.uid
+            try {
+                vm.saveUserData(user).observe(viewLifecycleOwner, {
+
+                    Log.d("saveUserData , Response:", it.toString())
+                }).addOnSuccessListener({
+                    Toast.makeText(context, "Successfully saved data.", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_signUpFragment2_to_bookFragment)
+                    //  findNavController().popBackStack()
+                })
+
+            }catch (e: Exception) {
+                //withContext(Dispatchers.Main) {
+                Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
+                //  }
+            }
+        }
+    }
+
+*/

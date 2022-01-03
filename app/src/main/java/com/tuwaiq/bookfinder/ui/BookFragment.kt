@@ -3,18 +3,21 @@ package com.tuwaiq.bookfinder.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.view.animation.AnimationUtils
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.tuwaiq.bookfinder.R
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.tuwaiq.bookfinder.ui.Adapter.BookAdapter
 
 class BookFragment : Fragment() {
     private lateinit var booksRV: RecyclerView
     private val vm by lazy {
-        ViewModelProvider(this)[MainVM::class.java]
+        ViewModelProvider(requireActivity())[MainVM::class.java]
     }
+    //private lateinit var bookFavList: MutableList<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // to enable OptionsMenu
@@ -32,20 +35,25 @@ class BookFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+         vm.userData()
 
         booksRV = view.findViewById(R.id.rvBooks)
-        booksRV.layoutManager  = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        booksRV.layoutManager  =
+            GridLayoutManager(context,2)
         loadBooks()
     }
 
     private fun loadBooks(query: String? = null) {
-        vm.fetchInterestingList(query).observe(viewLifecycleOwner, {
+        var scaleUp = AnimationUtils.loadAnimation(context,R.anim.scale_up)
+        vm.fetchBooksList(query).observe(viewLifecycleOwner, {
             if (query.isNullOrEmpty()) {
-                booksRV.adapter = BookAdapter(it)
+
+
+                booksRV.adapter = BookAdapter(it,vm,scaleUp)
             } else {
                 //to start from the beginning of the screen
                 booksRV.scrollToPosition(0)
-                booksRV.swapAdapter(BookAdapter(it), false)
+                booksRV.swapAdapter(BookAdapter(it, vm, scaleUp), false)
             }
             Log.d("Google books main Response", it.toString())
         })    }
@@ -62,8 +70,7 @@ class BookFragment : Fragment() {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     Log.d(tag, "Query text : $query")
-
-                    loadBooks(query?.trim())
+ loadBooks(query?.trim())
                     return true
                 }
 

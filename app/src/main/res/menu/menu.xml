@@ -2,11 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Home"
         android:id="@+id/bookFragment"
-        android:icon="@drawable/booksmenu"/>
-    <item android:title="Wishes"
-        android:id="@+id/Favora"
+        android:icon="@drawable/ic_home"/>
+    <item android:title="Favorite"
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/ic_baseline_favorite_24"
         />
-    <item android:title="Profile"
-        android:id="@+id/scan"
-        android:icon="@drawable/profilemenu"/>
+    <item android:title="Settings"
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_settings"/>
 </menu>
