@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         NotificationRepo().myNotification(this)
         preferences = getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE)
 
-        pef(preferences,this)
+        pef(preferences)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.container_fragment) as NavHostFragment
         val navController = navHostFragment.navController
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         resources.updateConfiguration(config, resources.displayMetrics)
 
     }
-    fun pef(preferences: SharedPreferences, activity: Activity){
+    fun pef(preferences: SharedPreferences){
 
         //check the dark mood user option
         if (preferences.getBoolean(DARKMOOD, false)) {

@@ -17,7 +17,7 @@ import kotlinx.coroutines.withContext
 class AppRepo {
 
     //val user: Users
-    var userRetrivedData = Users("", "")
+   // var userRetrivedData = Users("", "")
     private var db = FirebaseFirestore.getInstance()
     val uid = FirebaseAuth.getInstance().currentUser?.uid
     private val api1 = BookBuilder.bookAPI

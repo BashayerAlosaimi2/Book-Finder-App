@@ -170,7 +170,7 @@ class ProfileFragment : Fragment() {
             }*/
 
            preferences.edit().clear().apply()
-          mainActivity.pef(preferences,mainActivity)
+          mainActivity.pef(preferences)
            // AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
 
             FirebaseAuth.getInstance().signOut()
