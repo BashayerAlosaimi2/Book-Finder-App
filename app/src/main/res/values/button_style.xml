@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Buttons" parent="@android:style/Widget.Button">
+        <item name="cornerSize">25%</item>
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>

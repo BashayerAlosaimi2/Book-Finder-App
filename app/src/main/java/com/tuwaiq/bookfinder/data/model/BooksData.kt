@@ -6,13 +6,12 @@ import kotlinx.android.parcel.RawValue
 
 @Parcelize
 data class BooksData (
-    // val kind : String,
-    //val totalItems : Int,
-     val items : @RawValue List<VolumeInfo>  // ------- needed--------//
+
+     val items : @RawValue List<VolumeInfo>
 ): Parcelable
 @Parcelize
 data class VolumeInfo (
-  //  val kind : String,
+
     val id : String,
     val volumeInfo : BookInfo
 ): Parcelable{
@@ -28,20 +27,13 @@ data class ImageLinks (
 data class BookInfo(
 
     val title : String?,
-     val subtitle : String?,
     val authors : List<String>?  = listOf(""),
-    //val publisher : String?,
     val publishedDate : String,
     val description : String?,
     val pageCount : Int?,
-   // val infoLink : String,
     val previewLink : String?,
-    //val buyLink : String,
     val categories : List<String>? = listOf(""),
-    // for book image
     val imageLinks : ImageLinks?,
-    // pdf web link
-    //val webReaderLink : String,
 
 ): Parcelable
 

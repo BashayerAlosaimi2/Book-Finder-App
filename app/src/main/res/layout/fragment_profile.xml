@@ -4,24 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ProfileFragment">
+    tools:context=".ui.Settings">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/nameCard"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:bottomLeftRadius="10dp"
+        android:src="@drawable/img_4"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvEngLang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="15dp"
-        android:text="English"
+        android:text="@string/english"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,9 +34,10 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" | "
+        android:layout_width="2dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/horisintal_line"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/tvEngLang"
@@ -40,9 +46,10 @@
     <TextView
         android:id="@+id/tvArLang"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="23dp"
         android:text="@string/arabic"
         android:textSize="17sp"
+        android:layout_marginEnd="5dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/tvEngLang" />
@@ -195,7 +202,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="40dp"
-        android:background="@drawable/round_bg"
         android:gravity="center"
         android:padding="15dp"
         android:text="@string/sign_out"
@@ -207,17 +213,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.37" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

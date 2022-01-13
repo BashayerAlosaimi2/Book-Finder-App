@@ -3,7 +3,7 @@
     <string name="app_name">Book Finder</string>
     <string name="logo_text">اليوم قارئ، غداً قائد</string>
     <string name="name_sign">الإسم</string>
-    <string name="email_sign">الإيميل</string>
+    <string name="email_sign">البريد الالكتروني</string>
     <string name="i_already_have_an_account">لدي حساب بالفعل</string>
     <string name="password_sign">الرقم السري</string>
     <string name="signup_btn">تسجيل</string>
@@ -24,4 +24,21 @@
     <string name="arabic">العربية</string>
     <string name="your_information">المعلومات الشخصية</string>
     <string name="settings">الإعدادات</string>
+    <string name="forget_password">نسيت كلمة المرور؟</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="log_in">تسجيل دخول</string>
+    <string name="registration">تسجيل</string>
+    <string name="home">الرئيسية</string>
+    <string name="favorite">المفضلة</string>
+    <string name="please_enter_your_email">من فضلك ادخل بريدك الإلكتروني</string>
+    <string name="arrow_back">سهم الرجوع إلى الخلف</string>
+    <string name="please_enter_email">فضلاً ادخل البريد الإلكتروني</string>
+    <string name="please_enter_password">فضلاً أدخل الرقم السري</string>
+    <string name="invalid_email">البريدالاكتروني غير صالح</string>
+    <string name="welcome">مرحباً</string>
+    <string name="try_again">حاول مرة اخرى</string>
+    <string name="registered_successfully">تم تسجيل بنجاح</string>
+    <string name="no_description">لا يوجد وصف لهذا الكتاب</string>
+    <string name="search">ابحث ..</string>
+
 </resources>

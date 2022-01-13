@@ -1,28 +1,19 @@
 package com.tuwaiq.bookfinder.data.network
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
-import com.google.firebase.firestore.auth.User
-import com.google.firebase.firestore.ktx.getField
 import com.tuwaiq.bookfinder.data.model.*
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 class AppRepo {
 
-    //val user: Users
-   // var userRetrivedData = Users("", "")
     private var db = FirebaseFirestore.getInstance()
     val uid = FirebaseAuth.getInstance().currentUser?.uid
     private val api1 = BookBuilder.bookAPI
 
-    // ------- functions with with api -------
     suspend fun fetchList(): List<VolumeInfo> = withContext(Dispatchers.IO) {
         api1.fetchBooks().items
     }
@@ -32,7 +23,6 @@ class AppRepo {
     }
   
 
-    // ------- functions with firebase -------
     suspend fun fetchFavBook(): MutableLiveData<MutableList<Favorite>> {
 
         var favList: MutableLiveData<MutableList<Favorite>> = MutableLiveData()
@@ -60,9 +50,8 @@ class AppRepo {
                             }
                         }
                     }
-            }//.await()
+            }
         }
-        // return favoriteListIn
         return favList
     }
 
@@ -94,15 +83,15 @@ class AppRepo {
 
     }
 
-    suspend fun retrieveUserData(): MutableLiveData<String> {
-        var userName = MutableLiveData<String>()
+    suspend fun retrieveUserData(): MutableLiveData<Users> {
+        var userName = MutableLiveData<Users>()
         withContext(Dispatchers.IO) {
             db.collection("Users").document("$uid").get().addOnCompleteListener() {
                 it.addOnSuccessListener { snapshot ->
                     snapshot?.let { docSnap ->
                         val user = docSnap.toObject(Users::class.java)
                         user?.let {
-                            userName.postValue(user.username)
+                            userName.postValue(user!!)
                         }
 
                     }
@@ -112,12 +101,12 @@ class AppRepo {
         return userName
     }
 
-
-
     suspend fun updateUserName(Name: String) =
         withContext(Dispatchers.IO) {
             db.collection("Users").document("$uid").update("username", Name)
 
         }
+
+
     }
 

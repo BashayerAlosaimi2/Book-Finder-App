@@ -3,7 +3,6 @@ package com.tuwaiq.bookfinder.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,29 +10,37 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.tuwaiq.bookfinder.R
-import com.tuwaiq.bookfinder.data.model.BooksData
-import kotlinx.android.synthetic.main.fragment_book_details.view.*
+
 
 class BookDetailsFragment : BottomSheetDialogFragment() {
     override fun getTheme(): Int = R.style.BottomSheetDialogTheme
 
     private lateinit var titleTV: TextView
     private lateinit var title2TV: TextView
-    private lateinit var subtitleTV: TextView
+
     private lateinit var descriptionTV: TextView
+
     private lateinit var authorsTV: TextView
+    private lateinit var authorsTV0: TextView
+
     private lateinit var categoryTV: TextView
-    private lateinit var PublishDateTV: TextView
+    private lateinit var categoryTV0: TextView
+
     private lateinit var PageCountTV: TextView
+    private lateinit var PageCountTV0: TextView
+
+    private lateinit var PublishDateTV: TextView
+    private lateinit var PublishDateTV0: TextView
+
     private lateinit var previewBtn: Button
     private lateinit var bookImgV: ImageView
     private lateinit var previewUrl: String
+
 
     private val args: BookDetailsFragmentArgs by navArgs()
 
@@ -55,88 +62,88 @@ class BookDetailsFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bookImgV = view.findViewById(R.id.ivbookD)
+        previewBtn = view.findViewById(R.id.btnPreviewD)
+        descriptionTV = view.findViewById(R.id.tvDescriptionD)
+
         titleTV = view.findViewById(R.id.tvTitle1D)
         title2TV = view.findViewById(R.id.tvTitle2D)
-        subtitleTV = view.findViewById(R.id.tvSubTitleD)
-        descriptionTV = view.findViewById(R.id.tvDescriptionD)
+
         authorsTV = view.findViewById(R.id.tvAuthorsD)
+        authorsTV = view.findViewById(R.id.tvAuthorsD0)
+
         categoryTV = view.findViewById(R.id.tvCategoriesD)
-        PageCountTV = view.findViewById(R.id.tvPageCount)
-        previewBtn = view.findViewById(R.id.btnPreviewD)
+        categoryTV0 = view.findViewById(R.id.tvCategoriesD0)
+
+        PageCountTV = view.findViewById(R.id.tvPageCountD)
+        PageCountTV0 = view.findViewById(R.id.tvPageCountD0)
+
         PublishDateTV = view.findViewById(R.id.tvPublishDateD)
+        PublishDateTV0 = view.findViewById(R.id.tvPublishDateD0)
 
-
-        //show data
 
         bookImgV.load(args.booksInfoKey.imageLinks?.thumbnail)//?.replace("zoom=1","zoom=0"))
-        titleTV.setText(args.booksInfoKey.title)
-        title2TV.setText(args.booksInfoKey.title)
+        titleTV.text = args.booksInfoKey.title
+        title2TV.text = args.booksInfoKey.title
 
-        var subTitle = ""
-        args.booksInfoKey.subtitle?.let {
-            subTitle = args.booksInfoKey.subtitle.toString()
+        if (args.booksInfoKey.pageCount == null) {
+            PageCountTV.isVisible = false
+            PageCountTV0.isVisible = false
+        } else {
+            PageCountTV.text = args.booksInfoKey.pageCount.toString()
         }
-        subtitleTV.text = subTitle
-        //==
-        var description = "no description for this book"
-        args.booksInfoKey.description?.let {
-            description = args.booksInfoKey.description.toString()
+        if (args.booksInfoKey.publishedDate == null) {
+            PublishDateTV.isVisible = false
+            PublishDateTV0.isVisible = false
+        } else {
+            PublishDateTV.text = args.booksInfoKey.publishedDate.toString()
         }
-        descriptionTV.text = description
 
-        var PageCountPrint = ""
-        args.booksInfoKey.pageCount?.let {
-            PageCountPrint = args.booksInfoKey.pageCount.toString()
-        }
-        PageCountTV.text = PageCountPrint
+        if (args.booksInfoKey.categories == null) {
+            categoryTV.isVisible = false
+            categoryTV0.isVisible = false
 
-        var authorsPrint = ""
-        args.booksInfoKey.authors?.let {
-            for (i in it) {
-                if (i == it.last())
-                    authorsPrint += "$i ."
-                else
-                    authorsPrint += "$i , "
+        } else {
+            var categoryPrint = ""
+            args.booksInfoKey.categories?.let {
+                for (i in it) {
+                    if (i == it.last())
+                        categoryPrint += "$i ."
+                    else
+                        categoryPrint += "$i , "
+                }
             }
+            categoryTV.text = categoryPrint
+
         }
 
-        var categoryPrint = ""
-        args.booksInfoKey.categories?.let {
-            for (i in it) {
-                if (i == it.last())
-                    categoryPrint += "$i ."
-                else
-                    categoryPrint += "$i , "
+        if (args.booksInfoKey.authors == null) {
+            authorsTV.isVisible = false
+            authorsTV0.isVisible = false
+
+        } else {
+            var authorsPrint = ""
+            args.booksInfoKey.authors?.let {
+                for (i in it) {
+                    if (i == it.last())
+                        authorsPrint += "$i ."
+                    else
+                        authorsPrint += "$i , "
+                }
             }
+            authorsTV.text = authorsPrint
         }
-        var pageCountPrint = ""
-        args.booksInfoKey.pageCount?.let {
-            pageCountPrint = args.booksInfoKey.pageCount.toString()
-
+        if (args.booksInfoKey.description == null) {
+            descriptionTV.text = getString(R.string.no_description)
+        } else {
+            descriptionTV.text = args.booksInfoKey.description.toString()
         }
-
-
-        var publishedDatePrint = " "
-        args.booksInfoKey.publishedDate?.let {
-            publishedDatePrint = args.booksInfoKey.pageCount.toString()
-
-        }
-        PublishDateTV.text= publishedDatePrint
-
-        authorsTV.text= authorsPrint
-        categoryTV.text = categoryPrint
-        PageCountTV.text= pageCountPrint
-
 
         previewUrl = args.booksInfoKey.previewLink.toString()
         previewBtn.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW,previewUrl.toUri())
-           // intent.type = "url"
-            //intent.putExtra("preview", previewUrl)
+            val intent = Intent(Intent.ACTION_VIEW, previewUrl.toUri())
             startActivity(intent)
         }
 
+
     }
-
-
 }

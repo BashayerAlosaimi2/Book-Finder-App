@@ -1,32 +1,17 @@
 package com.tuwaiq.bookfinder.ui
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.widget.ImageView
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.animateSizeAsState
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.airbnb.lottie.LottieComposition
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.rememberLottieComposition
@@ -75,51 +60,23 @@ class Splash : Fragment() {
 
     @Composable
     fun AnimationSplash(nav: NavController) {
-        var startAnim by remember { mutableStateOf(false) }
-        val scaleAnim by animateSizeAsState(
-            targetValue = if (startAnim) Size(100F, 100F) else Size(10F, 10F),
-            animationSpec = tween(durationMillis = 2000)
-        )
-        val rotateAnim by animateFloatAsState(
-            targetValue = if (startAnim) 360F else 0F,
-            animationSpec = tween(durationMillis = 2000)
-        )
 
         LaunchedEffect(key1 = true) {
-            startAnim = true
+            //startAnim = true
             delay(4000)
             nav.navigate(R.id.action_splash_to_loginFragment2)
         }
         Loader()
-        // AnimateSplash(scaleAnim,rotateAnim)
     }
 
     @Composable
     fun Loader() {
-        val animationSpec by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.book_lottie))
+        val animationSpec by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.orang_book_logo))
         LottieAnimation(
             animationSpec,
-            modifier = Modifier.requiredSize(400.dp)
+            modifier = Modifier.requiredSize(500.dp)
         )
-    }/*
-    @Composable
-    private fun AnimateSplash(scaleAnim: Size, rotateAnim: Float) {
-        Column(
-            modifier= Modifier
-                .fillMaxSize()
-                .background(if (isSystemInDarkTheme()) Color.Black else Color.White),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            Image(modifier = Modifier
-                .size(scaleAnim.width.dp, scaleAnim.height.dp)
-                .rotate(rotateAnim),painter = painterResource(id = R.drawable.books_logo),
-                contentDescription = "logo"
-
-            )
-        }
-
-    }*/
+    }
 
 
 }

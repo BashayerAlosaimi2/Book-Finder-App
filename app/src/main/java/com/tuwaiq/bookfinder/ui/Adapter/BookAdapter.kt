@@ -9,7 +9,6 @@ import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -18,7 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.tuwaiq.bookfinder.R
 import com.tuwaiq.bookfinder.data.model.Favorite
 import com.tuwaiq.bookfinder.data.model.VolumeInfo
-import com.tuwaiq.bookfinder.ui.BookFragmentDirections
+import com.tuwaiq.bookfinder.ui.HomeDirections
 import com.tuwaiq.bookfinder.ui.MainVM
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -35,8 +34,6 @@ class BookAdapter(
         return CustomHolder(view)
     }
 
-
-    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CustomHolder, position: Int) {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
@@ -44,7 +41,7 @@ class BookAdapter(
         val book = booksData[position]
 
         holder.bookTitleTV.text = book.volumeInfo.title.toString()
-        //==========
+
         var bookPublisherDatePrint = ""
 
         book.volumeInfo.publishedDate.let {
@@ -52,10 +49,8 @@ class BookAdapter(
         }
         holder.bookPublisherDateTV.text = bookPublisherDatePrint
 
-       //============
         holder.bookImageIV.load(book.volumeInfo.imageLinks?.smallThumbnail)//?.replace("zoom=1","zoom=4"))
 
-      // var isFav= false
         db.collection("Users").document("$uid").collection("Favorite").document(book.id).get()
             .addOnCompleteListener {
                 if (it.result?.exists()!!) {
@@ -65,7 +60,6 @@ class BookAdapter(
                 }
             }
 
-      // if we want to add the book favorite list
         holder.likeIV.setOnClickListener {
             GlobalScope.launch {
                 holder.likeIV.startAnimation(scaleUp)
@@ -79,7 +73,6 @@ class BookAdapter(
                     val favInfo = Favorite(
                         book.id,
                         book.volumeInfo.title,
-                        book.volumeInfo.subtitle,
                         book.volumeInfo.authors,
                         book.volumeInfo.publishedDate,
                         book.volumeInfo.description,
@@ -88,6 +81,7 @@ class BookAdapter(
                         book.volumeInfo.categories,
                         book.volumeInfo.imageLinks?.thumbnail.toString(),
                         book.isFavBook
+
                     )
 
                     vm.saveBookToFavorite(favInfo)
@@ -98,34 +92,23 @@ class BookAdapter(
                     vm.deleteFavBooks(book.id)
 
                 }
-
-
         }
 
-
-        // if we click on the item
         holder.itemView.setOnClickListener { view ->
             val action =
-                BookFragmentDirections.actionBookFragmentToBookDetailsFragment(book.volumeInfo)
+                HomeDirections.actionBookFragmentToBookDetailsFragment(book.volumeInfo)
             view.findNavController().navigate(action)
         }
-
-
-    }
-
-
-
-
+ }
 
     override fun getItemCount(): Int {
         return booksData.size
     }
 }
+
 class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
     val bookTitleTV: TextView = itemView.findViewById(R.id.tvBookTitle)
-
-    //val bookAuthorTV: TextView = itemView.findViewById(R.id.tvAuthors)
     val bookPublisherDateTV: TextView = itemView.findViewById(R.id.tvPublishDate)
     val bookImageIV: ImageView = itemView.findViewById(R.id.ivbook)
     val likeIV: ImageView = itemView.findViewById(R.id.ivLike)
