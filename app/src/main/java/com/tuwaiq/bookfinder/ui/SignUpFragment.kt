@@ -2,7 +2,6 @@ package com.tuwaiq.bookfinder.ui
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,7 @@ import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.roula.kidslearning.util.Validation
 import com.tuwaiq.bookfinder.R
 import com.tuwaiq.bookfinder.data.model.Users
 
@@ -21,7 +20,7 @@ class SignUpFragment : Fragment() {
     private lateinit var username: EditText
     private lateinit var emaile: EditText
     private lateinit var password: EditText
-    private lateinit var tvlogin: TextView
+    private lateinit var tvToLogin: TextView
     private lateinit var btnSignup: Button
 
     private val ref1 = FirebaseAuth.getInstance()
@@ -50,18 +49,21 @@ class SignUpFragment : Fragment() {
         username = view.findViewById(R.id.et_username2)
         emaile = view.findViewById(R.id.et_email2)
         password = view.findViewById(R.id.et_password2)
-        tvlogin = view.findViewById(R.id.tv_log_in)
+        tvToLogin = view.findViewById(R.id.tv_to_log_in)
+
+
+        tvToLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_signUpFragment2_to_loginFragment2)
+        }
+
         btnSignup.setOnClickListener {
 
 
-            tvlogin.setOnClickListener {
-                findNavController().navigate(R.id.loginFragment2)
-            }
             when {
                 TextUtils.isEmpty(emaile.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         context,
-                        "Please Enter Email",
+                        getString(R.string.please_enter_email),
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -69,11 +71,18 @@ class SignUpFragment : Fragment() {
                 TextUtils.isEmpty(password.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         context,
-                        "Please Enter Password",
+                        getString(R.string.please_enter_password),
                         Toast.LENGTH_LONG
                     ).show()
 
 
+                }
+                !Validation.emil(emaile.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        context,
+                        getString(R.string.invalid_email),
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
                 else -> {
                     ref1.createUserWithEmailAndPassword(
@@ -86,7 +95,7 @@ class SignUpFragment : Fragment() {
 
                             Toast.makeText(
                                 context,
-                                "You were registered successfully",
+                                getString(R.string.registered_successfully),
                                 Toast.LENGTH_LONG
                             ).show()
                             sendUserData(
@@ -98,7 +107,7 @@ class SignUpFragment : Fragment() {
                             // if the registration is not successful then show error massage
                             Toast.makeText(
                                 context,
-                                register.exception!!.message.toString(),
+                              getString(R.string.try_again),
                                 Toast.LENGTH_LONG
                             ).show()
                         }
@@ -116,61 +125,7 @@ class SignUpFragment : Fragment() {
     }
 
     private fun saveUserFireStore(user: Users) {// = CoroutineScope(Dispatchers.IO).launch {
-        //val uid = FirebaseAuth.getInstance().currentUser?.uid
         vm.saveUserData(user)
-           // Toast.makeText(context, "Successfully saved data.", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_signUpFragment2_to_bookFragment)
-            //  findNavController().popBackStack()
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.show()
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
-
-        private fun sendUserData(username: String, emaile: String, ) {
-
-            val user = Users(username, emaile)
-            saveUserFireStore(user)
-
-        }
-
-        private fun saveUserFireStore(user: Users) {// = CoroutineScope(Dispatchers.IO).launch {
-            val uid = FirebaseAuth.getInstance().currentUser?.uid
-            try {
-                vm.saveUserData(user).observe(viewLifecycleOwner, {
-
-                    Log.d("saveUserData , Response:", it.toString())
-                }).addOnSuccessListener({
-                    Toast.makeText(context, "Successfully saved data.", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_signUpFragment2_to_bookFragment)
-                    //  findNavController().popBackStack()
-                })
-
-            }catch (e: Exception) {
-                //withContext(Dispatchers.Main) {
-                Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
-                //  }
-            }
-        }
-    }
-
-*/

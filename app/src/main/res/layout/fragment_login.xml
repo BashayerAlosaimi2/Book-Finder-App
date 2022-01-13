@@ -13,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        app:boxStrokeColor="@color/StrokeColor"
+        app:hintTextColor="@color/StrokeColor"
         android:hint="@string/email_sign"
         app:endIconMode="clear_text"
         app:helperTextTextColor="#FF0000"
@@ -34,11 +36,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        app:boxStrokeColor="@color/StrokeColor"
+        app:hintTextColor="@color/StrokeColor"
         android:hint="@string/password_sign"
         app:endIconMode="password_toggle"
         app:helperTextTextColor="#FF0000"
 
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/etSignInEmailLayout"
         app:startIconDrawable="@drawable/ic_lock">
 
@@ -47,7 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,8 +68,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/create_an_account"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <Button
@@ -76,94 +79,74 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_btn"
+        android:layout_marginTop="75dp"
+        android:textColor="@color/offwhite"
+        android:backgroundTint="@color/buttonColor"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+        app:layout_constraintTop_toBottomOf="@+id/et_passwordLayout" />
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/or"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline11" />
+        android:text="@string/log_in"
+        android:textStyle="bold"
+        android:textColor="@color/darkOrang"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
-        android:id="@+id/logo_circle"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:id="@+id/imageView"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:bottomLeftRadius="10dp"
-        android:src="@drawable/books_logo"
         android:topLeftRadius="10dp"
         android:topRightRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.59" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/img_4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.31" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.82" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.18" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6538988" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.76" />
+        app:layout_constraintGuide_percent="0.37" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="592dp" />
+        app:layout_constraintGuide_percent="0.89" />
 
     <CheckBox
         android:id="@+id/checkBox_remember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintStart_toStartOf="@+id/et_passwordLayout"
+        app:layout_constraintTop_toBottomOf="@+id/et_passwordLayout" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/remember_me"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintBottom_toBottomOf="@+id/checkBox_remember"
         app:layout_constraintStart_toEndOf="@+id/checkBox_remember"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/checkBox_remember" />
+
+    <TextView
+        android:id="@+id/tv_forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forget_password"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_passwordLayout"
+        app:layout_constraintTop_toBottomOf="@+id/et_passwordLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

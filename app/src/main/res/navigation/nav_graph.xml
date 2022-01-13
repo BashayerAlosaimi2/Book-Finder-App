@@ -12,6 +12,7 @@
         <action
             android:id="@+id/action_splash_to_loginFragment2"
             app:destination="@id/loginFragment2"
+            app:enterAnim="@anim/splash_in"
             app:popUpTo="@id/splash"
             app:popUpToInclusive="true" />
     </fragment>
@@ -22,10 +23,22 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment2_to_signUpFragment2"
-            app:destination="@id/signUpFragment2" />
+            app:destination="@id/signUpFragment2"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_loginFragment2_to_bookFragment"
             app:destination="@id/bookFragment"
+            app:enterAnim="@anim/splash_in"
+            app:popUpTo="@id/loginFragment2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment2_to_forgetPassword"
+            app:destination="@id/forgetPassword"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/loginFragment2"
             app:popUpToInclusive="true" />
     </fragment>
@@ -36,7 +49,11 @@
         tools:layout="@layout/fragment_sign_up" >
         <action
             android:id="@+id/action_signUpFragment2_to_loginFragment2"
-            app:destination="@id/loginFragment2" />
+            app:destination="@id/loginFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/signUpFragment2"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_signUpFragment2_to_bookFragment"
             app:destination="@id/bookFragment"
@@ -45,8 +62,8 @@
     </fragment>
     <fragment
         android:id="@+id/bookFragment"
-        android:name="com.tuwaiq.bookfinder.ui.BookFragment"
-        android:label="BookFragment"
+        android:name="com.tuwaiq.bookfinder.ui.Home"
+        android:label="Home"
         tools:layout="@layout/fragment_book">
         <action
             android:id="@+id/action_bookFragment_to_bookDetailsFragment"
@@ -76,8 +93,8 @@
     </dialog>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.tuwaiq.bookfinder.ui.ProfileFragment"
-        android:label="fragment_profile"
+        android:name="com.tuwaiq.bookfinder.ui.Settings"
+        android:label="Settings"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment_to_loginFragment2"
@@ -87,8 +104,8 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.tuwaiq.bookfinder.ui.FavoriteFragment"
-        android:label="fragment_favorite"
+        android:name="com.tuwaiq.bookfinder.ui.Favorite"
+        android:label="Favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
             android:id="@+id/action_favoriteFragment_to_favoraiteDetailsFragment"
@@ -100,7 +117,7 @@
         android:id="@+id/favoraiteDetailsFragment"
         android:name="com.tuwaiq.bookfinder.ui.FavoraiteDetailsFragment"
         android:label="FavoraiteDetailsFragment"
-        tools:layout="@layout/fragment_favoraite_details">
+        tools:layout="@layout/fragment_book_details">
         <argument
             android:name="favoraiteBooksKey"
             app:argType="com.tuwaiq.bookfinder.data.model.Favorite" />
@@ -110,4 +127,19 @@
             app:enterAnim="@anim/from_top"
             app:exitAnim="@anim/from_bottom" />
     </dialog>
+    <fragment
+        android:id="@+id/forgetPassword"
+        android:name="com.tuwaiq.bookfinder.ui.forgetPassword"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" >
+        <action
+            android:id="@+id/action_forgetPassword_to_loginFragment2"
+            app:destination="@id/loginFragment2"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/forgetPassword"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

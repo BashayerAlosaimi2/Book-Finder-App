@@ -8,8 +8,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.LifecycleOwner
-import com.tuwaiq.bookfinder.NAME
-import com.tuwaiq.bookfinder.PREFERENCE
+import com.tuwaiq.bookfinder.Constants.Companion.EMAIL
+import com.tuwaiq.bookfinder.Constants.Companion.NAME
+import com.tuwaiq.bookfinder.Constants.Companion.PREFERENCE
 import com.tuwaiq.bookfinder.data.model.Favorite
 import com.tuwaiq.bookfinder.data.model.Users
 import com.tuwaiq.bookfinder.data.model.VolumeInfo
@@ -21,13 +22,6 @@ class MainVM(context: Application) : AndroidViewModel(context) {
 
     val preferences = context.getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE)
 
-/*
-    fun getUserDataFromRepo(){//}:Users {
-       preferences.edit().putString(NAME, repo.userRetrivedData.username).apply()
-
-        //return repo.userRetrivedData
-
-    }*/
 
     fun fetchBooksList(searchKeyWord: String? = null): LiveData<List<VolumeInfo>> {
         val books = MutableLiveData<List<VolumeInfo>>()
@@ -48,7 +42,8 @@ class MainVM(context: Application) : AndroidViewModel(context) {
     fun userData(viewLifecycleOwner: LifecycleOwner) {
         viewModelScope.launch {
             repo.retrieveUserData().observe(viewLifecycleOwner,{
-                preferences.edit().putString(NAME, it).apply()
+                preferences.edit().putString(NAME, it.username).apply()
+                preferences.edit().putString(EMAIL, it.email).apply()
             })
         }
     }
@@ -64,11 +59,6 @@ class MainVM(context: Application) : AndroidViewModel(context) {
             Log.d("books vm in observe :", books.value.toString())
         }
 
-/*
-            books.postValue( repo.fetchFavBook())
-            Log.d("books vm", "vm")
-            Log.d("books vm is :", books.value.toString())
-        }*/
         Log.d("books vm run  :", books.value.toString())
         return books
     }
@@ -90,13 +80,6 @@ class MainVM(context: Application) : AndroidViewModel(context) {
             repo.deleteFavBooks(favBookId)
         }
     }
-/*    fun checkIfFavorite(favBookId: String):MutableLiveData<Boolean> {
-        var isFav:MutableLiveData<Boolean> = MutableLiveData<Boolean>()
-        viewModelScope.launch {
-           isFav =  repo.checkIfFavorite(favBookId)
-        }
-        return isFav
-    }*/
 
       fun updateUserName(userName: String) {
           viewModelScope.launch {

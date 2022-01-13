@@ -3,11 +3,13 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
-   // id("kotlin-parcelize")
-    id  "androidx.navigation.safeargs.kotlin"
+    // id 'kotlin-parcelize'
     id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
 }
-
+ext {
+    compose_vergin = "1.1.0-rc01"
+}
 android {
     compileSdk 31
 
@@ -90,24 +92,17 @@ dependencies {
 
 
     implementation("androidx.compose.ui:ui:1.0.5")
-// Tooling support (Previews, etc.)
-    implementation("androidx.compose.ui:ui-tooling:1.0.5")
-// Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation("androidx.compose.foundation:foundation:1.0.5")
-// Material Design
+    // Material Design
     implementation("androidx.compose.material:material:1.0.5")
-// Material design icons
-    implementation("androidx.compose.material:material-icons-core:1.0.5")
-// Integration with observables
-    implementation("androidx.compose.runtime:runtime-livedata:1.0.5")
-    implementation("androidx.compose.runtime:runtime-rxjava2:1.0.5")
-// UI Tests
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
-// Integration with activities
-    implementation 'androidx.activity:activity-compose:1.3.1'
-    //lottie
+    //lottie compose
     implementation "com.airbnb.android:lottie-compose:4.2.2"
-    //implementation "com.airbnb.android:lottie:3.4.0"
+    //lottie
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+    //unit test
+    testImplementation "com.google.truth:truth:1.1.2"
 
 
 }
