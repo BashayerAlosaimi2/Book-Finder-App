@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder.ui
+package com.tuwaiq.bookfinder.ui.fragment
 
 import com.tuwaiq.bookfinder.R
 
@@ -13,8 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.tuwaiq.bookfinder.ViewModel.MainVM
 import com.tuwaiq.bookfinder.ui.Adapter.FavoriteAdapter
 
 class Favorite : Fragment() {

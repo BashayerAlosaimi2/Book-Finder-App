@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder.ui
+package com.tuwaiq.bookfinder.ui.fragment
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -41,9 +41,7 @@ class BookDetailsFragment : BottomSheetDialogFragment() {
     private lateinit var bookImgV: ImageView
     private lateinit var previewUrl: String
 
-
     private val args: BookDetailsFragmentArgs by navArgs()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +52,6 @@ class BookDetailsFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_book_details, container, false)
     }
 
@@ -91,12 +88,7 @@ class BookDetailsFragment : BottomSheetDialogFragment() {
         } else {
             PageCountTV.text = args.booksInfoKey.pageCount.toString()
         }
-        if (args.booksInfoKey.publishedDate == null) {
-            PublishDateTV.isVisible = false
-            PublishDateTV0.isVisible = false
-        } else {
-            PublishDateTV.text = args.booksInfoKey.publishedDate.toString()
-        }
+        PublishDateTV.text = args.booksInfoKey.publishedDate
 
         if (args.booksInfoKey.categories == null) {
             categoryTV.isVisible = false

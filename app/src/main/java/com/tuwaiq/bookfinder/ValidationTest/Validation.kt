@@ -1,4 +1,4 @@
-package com.roula.kidslearning.util
+package com.tuwaiq.bookfinder.ValidationTest
 
 object Validation {
     private val EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"

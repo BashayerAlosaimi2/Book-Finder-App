@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder.ui
+package com.tuwaiq.bookfinder.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +10,7 @@ import com.tuwaiq.bookfinder.R
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.tuwaiq.bookfinder.ViewModel.MainVM
 import com.tuwaiq.bookfinder.ui.Adapter.BookAdapter
 
 class Home : Fragment() {
@@ -18,7 +19,7 @@ class Home : Fragment() {
     private lateinit var searchView: SearchView
 
     private val vm by lazy {
-        ViewModelProvider(requireActivity())[MainVM::class.java]
+        ViewModelProvider(this)[MainVM::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

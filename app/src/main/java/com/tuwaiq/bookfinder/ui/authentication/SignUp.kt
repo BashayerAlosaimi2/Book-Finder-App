@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder.ui
+package com.tuwaiq.bookfinder.ui.authentication
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,13 +10,14 @@ import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.roula.kidslearning.util.Validation
+import com.tuwaiq.bookfinder.ValidationTest.Validation
 import com.tuwaiq.bookfinder.R
+import com.tuwaiq.bookfinder.ViewModel.MainVM
 import com.tuwaiq.bookfinder.data.model.Users
 
 
 
-class SignUpFragment : Fragment() {
+class SignUp : Fragment() {
     private lateinit var username: EditText
     private lateinit var emaile: EditText
     private lateinit var password: EditText
@@ -25,7 +26,7 @@ class SignUpFragment : Fragment() {
 
     private val ref1 = FirebaseAuth.getInstance()
     private val vm by lazy {
-        ViewModelProvider(requireActivity())[MainVM::class.java]
+        ViewModelProvider(this)[MainVM::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

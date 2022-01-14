@@ -6,7 +6,7 @@
     app:startDestination="@id/splash">
     <fragment
         android:id="@+id/splash"
-        android:name="com.tuwaiq.bookfinder.ui.Splash"
+        android:name="com.tuwaiq.bookfinder.ui.fragment.Splash"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment2"
-        android:name="com.tuwaiq.bookfinder.ui.SignUpFragment"
+        android:name="com.tuwaiq.bookfinder.ui.authentication.SignUp"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -62,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/bookFragment"
-        android:name="com.tuwaiq.bookfinder.ui.Home"
+        android:name="com.tuwaiq.bookfinder.ui.fragment.Home"
         android:label="Home"
         tools:layout="@layout/fragment_book">
         <action
@@ -77,7 +77,7 @@
     </fragment>
     <dialog
         android:id="@+id/bookDetailsFragment"
-        android:name="com.tuwaiq.bookfinder.ui.BookDetailsFragment"
+        android:name="com.tuwaiq.bookfinder.ui.fragment.BookDetailsFragment"
         android:label=" fragment_book_details"
         tools:layout="@layout/fragment_book_details"
         >
@@ -93,7 +93,7 @@
     </dialog>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.tuwaiq.bookfinder.ui.Settings"
+        android:name="com.tuwaiq.bookfinder.ui.fragment.Settings"
         android:label="Settings"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -104,7 +104,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.tuwaiq.bookfinder.ui.Favorite"
+        android:name="com.tuwaiq.bookfinder.ui.fragment.Favorite"
         android:label="Favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
@@ -115,7 +115,7 @@
     </fragment>
     <dialog
         android:id="@+id/favoraiteDetailsFragment"
-        android:name="com.tuwaiq.bookfinder.ui.FavoraiteDetailsFragment"
+        android:name="com.tuwaiq.bookfinder.ui.fragment.FavoraiteDetailsFragment"
         android:label="FavoraiteDetailsFragment"
         tools:layout="@layout/fragment_book_details">
         <argument
@@ -129,7 +129,7 @@
     </dialog>
     <fragment
         android:id="@+id/forgetPassword"
-        android:name="com.tuwaiq.bookfinder.ui.forgetPassword"
+        android:name="com.tuwaiq.bookfinder.ui.authentication.forgetPassword"
         android:label="fragment_forget_password"
         tools:layout="@layout/fragment_forget_password" >
         <action

@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.tuwaiq.bookfinder.R
 import com.tuwaiq.bookfinder.data.model.Favorite
-import com.tuwaiq.bookfinder.ui.FavoriteDirections
-import com.tuwaiq.bookfinder.ui.MainVM
+import com.tuwaiq.bookfinder.ViewModel.MainVM
+import com.tuwaiq.bookfinder.ui.fragment.FavoriteDirections
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay

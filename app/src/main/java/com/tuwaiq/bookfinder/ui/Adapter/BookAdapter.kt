@@ -1,7 +1,5 @@
 package com.tuwaiq.bookfinder.ui.Adapter
 
-import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,8 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.tuwaiq.bookfinder.R
 import com.tuwaiq.bookfinder.data.model.Favorite
 import com.tuwaiq.bookfinder.data.model.VolumeInfo
-import com.tuwaiq.bookfinder.ui.HomeDirections
-import com.tuwaiq.bookfinder.ui.MainVM
+import com.tuwaiq.bookfinder.ViewModel.MainVM
+import com.tuwaiq.bookfinder.ui.fragment.HomeDirections
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -54,9 +52,7 @@ class BookAdapter(
         db.collection("Users").document("$uid").collection("Favorite").document(book.id).get()
             .addOnCompleteListener {
                 if (it.result?.exists()!!) {
-                    book.isFavBook = true
                     holder.likeIV.setImageResource(R.drawable.favorite_filled)
-                    Log.d("is fav db", "im here")
                 }
             }
 

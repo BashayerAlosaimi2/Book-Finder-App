@@ -12,12 +12,12 @@ import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.roula.kidslearning.util.Validation
-import com.tuwaiq.bookfinder.Constants.Companion.CHECKBOX
-import com.tuwaiq.bookfinder.Constants.Companion.EMAIL
-import com.tuwaiq.bookfinder.Constants.Companion.PASSWORD
-import com.tuwaiq.bookfinder.Constants.Companion.PREFERENCE
-import com.tuwaiq.bookfinder.ui.MainVM
+import com.tuwaiq.bookfinder.ValidationTest.Validation
+import com.tuwaiq.bookfinder.Util.Constants.Companion.CHECKBOX
+import com.tuwaiq.bookfinder.Util.Constants.Companion.EMAIL
+import com.tuwaiq.bookfinder.Util.Constants.Companion.PASSWORD
+import com.tuwaiq.bookfinder.Util.Constants.Companion.PREFERENCE
+import com.tuwaiq.bookfinder.ViewModel.MainVM
 
 
 

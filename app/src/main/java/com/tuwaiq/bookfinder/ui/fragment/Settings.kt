@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder.ui
+package com.tuwaiq.bookfinder.ui.fragment
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,11 +21,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.bookfinder.*
-import com.tuwaiq.bookfinder.Constants.Companion.DARKMOOD
-import com.tuwaiq.bookfinder.Constants.Companion.EMAIL
-import com.tuwaiq.bookfinder.Constants.Companion.LOCALE
-import com.tuwaiq.bookfinder.Constants.Companion.NAME
-import com.tuwaiq.bookfinder.Constants.Companion.PREFERENCE
+import com.tuwaiq.bookfinder.Util.Constants.Companion.DARKMOOD
+import com.tuwaiq.bookfinder.Util.Constants.Companion.EMAIL
+import com.tuwaiq.bookfinder.Util.Constants.Companion.LOCALE
+import com.tuwaiq.bookfinder.Util.Constants.Companion.NAME
+import com.tuwaiq.bookfinder.Util.Constants.Companion.PREFERENCE
+import com.tuwaiq.bookfinder.ViewModel.MainVM
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -36,7 +36,6 @@ import java.util.*
 @DelicateCoroutinesApi
 class Settings : Fragment() {
 
-    // private lateinit var userNameTV: TextView
     private lateinit var userNameET: EditText
     private lateinit var emailTV: TextView
     private lateinit var preferences: SharedPreferences
@@ -46,21 +45,18 @@ class Settings : Fragment() {
     private lateinit var editIconIV: ImageView
     private lateinit var doneIconIV: ImageView
 
-
     private val vm by lazy {
-        ViewModelProvider(requireActivity())[MainVM::class.java]
+        ViewModelProvider(this)[MainVM::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
