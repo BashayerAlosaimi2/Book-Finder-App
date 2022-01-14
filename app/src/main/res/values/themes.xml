@@ -3,7 +3,7 @@
     <style name="Theme.BookFinder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/darkOrang</item>
-        <item name="colorPrimaryVariant">@color/darkOrang</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/darkOrang</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#F57C00</item>

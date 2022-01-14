@@ -3,7 +3,7 @@
     <style name="Theme.BookFinder" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/buttonColor</item>
-        <item name="colorPrimaryVariant">@color/buttonColor</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/darkOrang</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/orang</item>

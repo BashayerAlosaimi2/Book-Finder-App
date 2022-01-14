@@ -11,9 +11,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.tuwaiq.bookfinder.Constants.Companion.DARKMOOD
-import com.tuwaiq.bookfinder.Constants.Companion.LOCALE
-import com.tuwaiq.bookfinder.Constants.Companion.PREFERENCE
+import com.tuwaiq.bookfinder.Util.Constants.Companion.DARKMOOD
+import com.tuwaiq.bookfinder.Util.Constants.Companion.LOCALE
+import com.tuwaiq.bookfinder.Util.Constants.Companion.PREFERENCE
 import com.tuwaiq.bookfinder.notification.NotificationRepo
 import java.util.*
 

@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder.ui
+package com.tuwaiq.bookfinder.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -22,47 +22,26 @@ import kotlinx.coroutines.delay
 
 class Splash : Fragment() {
 
-    // private lateinit var logo: ImageView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         logoCompose.setContent {
             MaterialTheme {
-                AnimationSplash(findNavController()) //navigate(R.id.action_splash_to_loginFragment2)
-
+                AnimationSplash(findNavController())
             }
-
         }
-
-
-        /*  logo = view.findViewById(R.id.ic_logo)
-          // Setting up two animations with their respective time
-          logo.startAnimation(AnimationUtils.loadAnimation(context, R.anim.splash_in))
-          Handler().postDelayed({
-              logo.startAnimation(AnimationUtils.loadAnimation(context, R.anim.splash_out))
-              Handler().postDelayed({
-                  logo.visibility = View.GONE
-                  findNavController().navigate(R.id.action_splash_to_loginFragment2)
-                  //findNavController().popBackStack()
-
-              },0)
-          },0)*/
-
     }
 
     @Composable
     fun AnimationSplash(nav: NavController) {
 
         LaunchedEffect(key1 = true) {
-            //startAnim = true
             delay(4000)
             nav.navigate(R.id.action_splash_to_loginFragment2)
         }

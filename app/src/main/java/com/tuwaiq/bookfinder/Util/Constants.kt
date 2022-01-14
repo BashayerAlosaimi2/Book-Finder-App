@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder
+package com.tuwaiq.bookfinder.Util
 
 class Constants {
 

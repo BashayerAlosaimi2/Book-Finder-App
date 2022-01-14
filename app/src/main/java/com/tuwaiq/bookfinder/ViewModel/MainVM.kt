@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder.ui
+package com.tuwaiq.bookfinder.ViewModel
 
 import android.app.Application
 import android.content.Context
@@ -8,9 +8,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.LifecycleOwner
-import com.tuwaiq.bookfinder.Constants.Companion.EMAIL
-import com.tuwaiq.bookfinder.Constants.Companion.NAME
-import com.tuwaiq.bookfinder.Constants.Companion.PREFERENCE
+import com.tuwaiq.bookfinder.Util.Constants.Companion.EMAIL
+import com.tuwaiq.bookfinder.Util.Constants.Companion.NAME
+import com.tuwaiq.bookfinder.Util.Constants.Companion.PREFERENCE
 import com.tuwaiq.bookfinder.data.model.Favorite
 import com.tuwaiq.bookfinder.data.model.Users
 import com.tuwaiq.bookfinder.data.model.VolumeInfo

@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder.ui
+package com.tuwaiq.bookfinder.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -108,7 +108,6 @@ class FavoraiteDetailsFragment : BottomSheetDialogFragment() {
                 }
             }
             categoryTV.text = categoryPrint
-
         }
 
         if (args.favoraiteBooksKey.authors == null) {
@@ -132,7 +131,6 @@ class FavoraiteDetailsFragment : BottomSheetDialogFragment() {
         } else {
             descriptionTV.text = args.favoraiteBooksKey.description.toString()
         }
-
         previewUrl = args.favoraiteBooksKey.previewLink.toString()
         previewBtn.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, previewUrl.toUri())

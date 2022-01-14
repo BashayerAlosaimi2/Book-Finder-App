@@ -1,6 +1,6 @@
 package com.tuwaiq.bookfinder.data.network
 
-import com.tuwaiq.bookfinder.Constants.Companion.BASE_URL
+import com.tuwaiq.bookfinder.Util.Constants.Companion.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

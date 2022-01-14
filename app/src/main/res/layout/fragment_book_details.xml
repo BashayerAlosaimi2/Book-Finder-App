@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     style="@style/BottomSheetDialogTheme"
     android:orientation="vertical"
-    tools:context=".ui.BookDetailsFragment">
+    tools:context=".ui.fragment.BookDetailsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

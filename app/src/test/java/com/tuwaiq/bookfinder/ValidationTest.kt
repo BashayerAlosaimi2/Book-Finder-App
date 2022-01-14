@@ -1,8 +1,7 @@
 package com.roula.kidslearning
 
 import com.google.common.truth.Truth.assertThat
-import com.roula.kidslearning.util.Validation
-import org.hamcrest.MatcherAssert.assertThat
+import com.tuwaiq.bookfinder.ValidationTest.Validation
 import org.junit.Before
 import org.junit.Test
 
