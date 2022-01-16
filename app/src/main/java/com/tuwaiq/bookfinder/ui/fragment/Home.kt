@@ -64,7 +64,6 @@ class Home : Fragment() {
 
                 booksRV.adapter = BookAdapter(it, vm, scaleUp)
             } else {
-                //to start from the beginning of the screen
                 booksRV.scrollToPosition(0)
                 booksRV.swapAdapter(BookAdapter(it, vm, scaleUp), false)
             }

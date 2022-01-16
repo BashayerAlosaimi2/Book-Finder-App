@@ -41,7 +41,7 @@ class MainVM(context: Application) : AndroidViewModel(context) {
 
     fun userData(viewLifecycleOwner: LifecycleOwner) {
         viewModelScope.launch {
-            repo.retrieveUserData().observe(viewLifecycleOwner,{
+            repo.retrieveUserData().observe(viewLifecycleOwner, {
                 preferences.edit().putString(NAME, it.username).apply()
                 preferences.edit().putString(EMAIL, it.email).apply()
             })
@@ -49,19 +49,16 @@ class MainVM(context: Application) : AndroidViewModel(context) {
     }
 
     fun fetchFavList(viewLifecycleOwner: LifecycleOwner): MutableLiveData<MutableList<Favorite>> {
-        var books: MutableLiveData<MutableList<Favorite>> = MutableLiveData<MutableList<Favorite>>()
-
+        val books: MutableLiveData<MutableList<Favorite>> = MutableLiveData<MutableList<Favorite>>()
         viewModelScope.launch {
             repo.fetchFavBook().observe(viewLifecycleOwner, {
                 books.value = it
             })
-
-            Log.d("books vm in observe :", books.value.toString())
         }
-
-        Log.d("books vm run  :", books.value.toString())
         return books
     }
+
+
 
     fun saveUserData(user: Users) {
         viewModelScope.launch {
@@ -81,10 +78,10 @@ class MainVM(context: Application) : AndroidViewModel(context) {
         }
     }
 
-      fun updateUserName(userName: String) {
-          viewModelScope.launch {
-              repo.updateUserName(userName)
-              repo.retrieveUserData()
-          }
-      }
+    fun updateUserName(userName: String) {
+        viewModelScope.launch {
+            repo.updateUserName(userName)
+            repo.retrieveUserData()
+        }
+    }
 }

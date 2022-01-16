@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -46,15 +46,22 @@ class BookAdapter(
             bookPublisherDatePrint = book.volumeInfo.publishedDate
         }
         holder.bookPublisherDateTV.text = bookPublisherDatePrint
+        holder.bookImageIV.load(book.volumeInfo.imageLinks?.smallThumbnail)
 
-        holder.bookImageIV.load(book.volumeInfo.imageLinks?.smallThumbnail)//?.replace("zoom=1","zoom=4"))
-
+     /*   if (vm.isFavBook(book.id, viewLifecycleOwner)) {
+            holder.likeIV.setImageResource(R.drawable.favorite_filled)
+        }*/
         db.collection("Users").document("$uid").collection("Favorite").document(book.id).get()
             .addOnCompleteListener {
                 if (it.result?.exists()!!) {
+                    book.isFavBook=true
                     holder.likeIV.setImageResource(R.drawable.favorite_filled)
+                } else {
+                    holder.likeIV.setImageResource(R.drawable.favorite_border)
+
                 }
             }
+
 
         holder.likeIV.setOnClickListener {
             GlobalScope.launch {
@@ -111,21 +118,10 @@ class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnC
 
     init {
         itemView.setOnClickListener(this)
-
     }
 
     override fun onClick(view: View?) {
-        likeIV.setOnClickListener {
-
-            Toast.makeText(
-                itemView.context,
-                "${bookTitleTV.text} added to favorite",
-                Toast.LENGTH_SHORT
-            )
-                .show()
-
         }
 
     }
 
-}

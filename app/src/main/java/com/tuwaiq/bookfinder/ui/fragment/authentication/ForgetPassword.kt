@@ -1,4 +1,4 @@
-package com.tuwaiq.bookfinder.ui.authentication
+package com.tuwaiq.bookfinder.ui.fragment.authentication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
