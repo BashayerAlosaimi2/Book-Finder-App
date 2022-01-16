@@ -47,7 +47,6 @@ class Splash : Fragment() {
         }
         Loader()
     }
-
     @Composable
     fun Loader() {
         val animationSpec by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.orang_book_logo))

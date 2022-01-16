@@ -62,9 +62,19 @@
         android:visibility="gone"
         tools:ignore="MissingConstraints" />
 
-
     <TextView
         android:id="@+id/tv_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup"
+        android:textSize="18sp"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/darkOrang"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_sign_up1"
+        app:layout_constraintTop_toTopOf="@+id/tv_sign_up1" />
+    <TextView
+        android:id="@+id/tv_sign_up1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/create_an_account"

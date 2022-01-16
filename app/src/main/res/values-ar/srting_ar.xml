@@ -39,6 +39,7 @@
     <string name="try_again">حاول مرة اخرى</string>
     <string name="registered_successfully">تم تسجيل بنجاح</string>
     <string name="no_description">لا يوجد وصف لهذا الكتاب</string>
-    <string name="search">ابحث ..</string>
+    <string name="search">ابحث..</string>
+    <string name="signup">سجل</string>
 
 </resources>
