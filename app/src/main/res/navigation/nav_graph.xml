@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment2"
-        android:name="com.tuwaiq.bookfinder.ui.authentication.SignUp"
+        android:name="com.tuwaiq.bookfinder.ui.fragment.authentication.SignUp"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -129,7 +129,7 @@
     </dialog>
     <fragment
         android:id="@+id/forgetPassword"
-        android:name="com.tuwaiq.bookfinder.ui.authentication.forgetPassword"
+        android:name="com.tuwaiq.bookfinder.ui.fragment.authentication.forgetPassword"
         android:label="fragment_forget_password"
         tools:layout="@layout/fragment_forget_password" >
         <action

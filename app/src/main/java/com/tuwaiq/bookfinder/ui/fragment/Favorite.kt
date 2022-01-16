@@ -1,8 +1,6 @@
 package com.tuwaiq.bookfinder.ui.fragment
 
 import com.tuwaiq.bookfinder.R
-
-
 import android.os.Bundle
 import android.view.*
 import android.view.animation.AnimationUtils

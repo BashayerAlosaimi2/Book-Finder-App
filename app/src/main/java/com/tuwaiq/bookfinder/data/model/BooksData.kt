@@ -14,7 +14,9 @@ data class VolumeInfo (
 
     val id : String,
     val volumeInfo : BookInfo
-): Parcelable{
+): Parcelable
+
+{
     var isFavBook: Boolean = false
 }
 

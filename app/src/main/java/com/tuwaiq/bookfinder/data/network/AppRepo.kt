@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
+import com.tuwaiq.bookfinder.R
 import com.tuwaiq.bookfinder.data.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -21,7 +22,7 @@ class AppRepo {
     suspend fun searchBooks(searchKeyWord: String): List<VolumeInfo> = withContext(Dispatchers.IO) {
         api1.searchBook(searchKeyWord).items
     }
-  
+
 
     suspend fun fetchFavBook(): MutableLiveData<MutableList<Favorite>> {
 
@@ -83,8 +84,10 @@ class AppRepo {
 
     }
 
+
+
     suspend fun retrieveUserData(): MutableLiveData<Users> {
-        var userName = MutableLiveData<Users>()
+        val userName = MutableLiveData<Users>()
         withContext(Dispatchers.IO) {
             db.collection("Users").document("$uid").get().addOnCompleteListener() {
                 it.addOnSuccessListener { snapshot ->
@@ -108,5 +111,5 @@ class AppRepo {
         }
 
 
-    }
+}
 
