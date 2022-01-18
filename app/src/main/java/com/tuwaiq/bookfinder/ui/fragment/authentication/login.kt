@@ -113,12 +113,6 @@ class LoginFragment : Fragment() {
                             if (task.isSuccessful) {
                                 vm.userData(viewLifecycleOwner)
 
-                                Toast.makeText(
-                                    context,
-                                   getString(R.string.welcome),
-                                    Toast.LENGTH_LONG
-                                ).show()
-
                                 editor.putString(EMAIL, email)
                                     .putString(PASSWORD, password)
                                     .putBoolean(CHECKBOX, rememberMe.isChecked)
@@ -127,7 +121,6 @@ class LoginFragment : Fragment() {
                                 findNavController().navigate(R.id.action_loginFragment2_to_bookFragment)
 
                             } else {
-                                // if the registreation is not succsesful then show error massage
                                 Toast.makeText(
                                     context,
                                     getString(R.string.try_again),

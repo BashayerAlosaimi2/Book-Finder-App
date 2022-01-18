@@ -94,11 +94,7 @@ class SignUp : Fragment() {
                         // if the registration is successfully done
                         if (register.isSuccessful) {
 
-                            Toast.makeText(
-                                context,
-                                getString(R.string.registered_successfully),
-                                Toast.LENGTH_LONG
-                            ).show()
+
                             sendUserData(
                                 username.text.toString(),
                                 emaile.text.toString()
