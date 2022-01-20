@@ -44,6 +44,7 @@ class Favorite : Fragment() {
         favIcon.isVisible = false
         favText.isVisible = false
         loadBooks()
+
     }
 
 
@@ -53,13 +54,14 @@ class Favorite : Fragment() {
 
         vm.fetchFavList(viewLifecycleOwner).observe(viewLifecycleOwner, {
             if (it.isNullOrEmpty()) {
-                favIcon.isVisible = true
-                favText.isVisible = true
+                favIcon.setVisibility(View.VISIBLE)
+                favText.setVisibility(View.VISIBLE)
+                booksRVFav.setVisibility(View.GONE)
             }else{
-                favIcon.isVisible = false
-                favText.isVisible = false
+                favIcon.setVisibility(View.GONE)
+                favText.setVisibility(View.GONE)
             }
-            favAdapter = FavoriteAdapter(it, vm, scaleUp)
+            favAdapter = FavoriteAdapter(it, vm, scaleUp, favIcon,favText)
             booksRVFav.adapter = favAdapter
 
         })

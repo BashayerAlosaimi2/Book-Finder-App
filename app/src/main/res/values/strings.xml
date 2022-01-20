@@ -43,4 +43,6 @@
     <string name="no_description">no description for this book</string>
     <string name="search">Search…</string>
     <string name="signup">SignUp</string>
+    <string name="you_didn_t_add_to_favorite">You didn\'t add to favorite</string>
+    <string name="like_border">like border</string>
 </resources>

@@ -23,7 +23,9 @@ import kotlinx.coroutines.launch
 class FavoriteAdapter(
     private val booksDataFav: MutableList<Favorite>,
     val vm: MainVM,
-    val scaleUp: Animation
+    val scaleUp: Animation,
+    val favIcon: ImageView,
+    val favText: TextView
 ) : RecyclerView.Adapter<CustomHolderFav>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomHolderFav {
         val view =
@@ -56,8 +58,12 @@ class FavoriteAdapter(
                 booksDataFav.removeAt(position)
                 notifyDataSetChanged()
 
-            }
+                if (getItemCount() == 0) {
+                    favIcon.setVisibility(View.VISIBLE)
+                    favText.setVisibility(View.VISIBLE)
 
+                }
+            }
         }
 
         holder.itemView.setOnClickListener { view ->
