@@ -18,6 +18,14 @@ The book finder application allows you to search for any book and see the detail
 - Work Manager for notifications
 - Lottie compose
 
+## App Demo
+
+#### LogIn 
+![login](https://user-images.githubusercontent.com/91477003/150307693-9e370874-190a-4c5e-856f-6dd3e6877430.gif)
+
+
+
+
 ## Presentation Link
 [BookFinderPresentation](https://github.com/BashayerAlosaimi2)
 
