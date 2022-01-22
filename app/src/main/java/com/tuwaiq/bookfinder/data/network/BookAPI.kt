@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface BookAPI {
 
-    @GET("?q=kotlin&key=$API_KEY")
+    @GET("?q=ebook&key=$API_KEY")
     suspend fun fetchBooks(): BooksData
 
     @GET("?printType=books&$API_KEY")

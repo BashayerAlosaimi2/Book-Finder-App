@@ -2,6 +2,7 @@ package com.tuwaiq.bookfinder.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,6 @@ import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
-import coil.load
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.tuwaiq.bookfinder.R
 
@@ -74,9 +74,14 @@ class FavoraiteDetailsFragment : BottomSheetDialogFragment() {
 
         PublishDateTV = view.findViewById(R.id.tvPublishDateD)
         PublishDateTV0 = view.findViewById(R.id.tvPublishDateD0)
+        Glide.with(view)
+            .load(args.favoraiteBooksKey.imageLinks)
+            .placeholder(R.drawable.imagenotfound2)
+            .error(R.drawable.placeholder)
+            .into(bookImgV)
 
 
-        bookImgV.load(args.favoraiteBooksKey.imageLinks)//?.replace("zoom=1","zoom=0"))
+      //  bookImgV.load(args.favoraiteBooksKey.imageLinks)//?.replace("zoom=1","zoom=0"))
         titleTV.text = args.favoraiteBooksKey.title
         title2TV.text = args.favoraiteBooksKey.title
 

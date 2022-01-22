@@ -2,6 +2,7 @@ package com.tuwaiq.bookfinder.ui.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
+import com.bumptech.glide.Glide
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.widget.ImageView
@@ -9,7 +10,6 @@ import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tuwaiq.bookfinder.R
@@ -46,11 +46,13 @@ class BookAdapter(
             bookPublisherDatePrint = book.volumeInfo.publishedDate
         }
         holder.bookPublisherDateTV.text = bookPublisherDatePrint
-        holder.bookImageIV.load(book.volumeInfo.imageLinks?.smallThumbnail)
 
-     /*   if (vm.isFavBook(book.id, viewLifecycleOwner)) {
-            holder.likeIV.setImageResource(R.drawable.favorite_filled)
-        }*/
+        Glide.with(holder.itemView)
+            .load(book.volumeInfo.imageLinks?.smallThumbnail)
+            .placeholder(R.drawable.imagenotfound2)
+            .error(R.drawable.placeholder)
+            .into(holder.bookImageIV)
+
         db.collection("Users").document("$uid").collection("Favorite").document(book.id).get()
             .addOnCompleteListener {
                 if (it.result?.exists()!!) {
@@ -61,7 +63,6 @@ class BookAdapter(
 
                 }
             }
-
 
         holder.likeIV.setOnClickListener {
             GlobalScope.launch {
