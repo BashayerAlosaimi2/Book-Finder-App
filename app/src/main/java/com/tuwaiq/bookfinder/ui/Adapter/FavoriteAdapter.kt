@@ -3,6 +3,7 @@ package com.tuwaiq.bookfinder.ui.Adapter
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
+import com.bumptech.glide.Glide
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.widget.ImageView
@@ -10,7 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.tuwaiq.bookfinder.R
 import com.tuwaiq.bookfinder.data.model.Favorite
 import com.tuwaiq.bookfinder.ViewModel.MainVM
@@ -46,7 +46,13 @@ class FavoriteAdapter(
         }
         holder.bookPublisherDateTV.text = bookPublisherDatePrint
         holder.bookTitleTV.text = book.title.toString()
-        holder.bookImageIV.load(book.imageLinks)
+
+        Glide.with(holder.itemView)
+            .load(book.imageLinks)
+            .placeholder(R.drawable.imagenotfound2)
+            .error(R.drawable.placeholder)
+            .into(holder.bookImageIV)
+
         holder.likeIV.setOnClickListener {
             GlobalScope.launch {
                 holder.likeIV.startAnimation(scaleUp)

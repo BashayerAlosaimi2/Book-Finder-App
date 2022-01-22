@@ -3,6 +3,7 @@ package com.tuwaiq.bookfinder.ui.fragment
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,6 @@ import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
-import coil.load
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.tuwaiq.bookfinder.R
 
@@ -78,7 +78,14 @@ class BookDetailsFragment : BottomSheetDialogFragment() {
         PublishDateTV0 = view.findViewById(R.id.tvPublishDateD0)
 
 
-        bookImgV.load(args.booksInfoKey.imageLinks?.thumbnail)//?.replace("zoom=1","zoom=0"))
+        //bookImgV.load(args.booksInfoKey.imageLinks?.thumbnail)//?.replace("zoom=1","zoom=0"))
+
+        Glide.with(view)
+            .load(args.booksInfoKey.imageLinks?.thumbnail)
+            .placeholder(R.drawable.imagenotfound2)
+            .error(R.drawable.placeholder)
+            .into(bookImgV)
+
         titleTV.text = args.booksInfoKey.title
         title2TV.text = args.booksInfoKey.title
 
