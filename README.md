@@ -21,11 +21,11 @@ The book finder application allows you to search for any book and see the detail
 ## App Demo
 
 #### LogIn 
-<img src =images/login.gif"width="400">&emsp;
+<img src =images/login.gif"width="400">
                                       
 #### Home Page                                    
                                       
-<img src ="images/homeVed.gif" width="400">;
+<img src ="images/homeVed.gif" width="400">
 
 
 
