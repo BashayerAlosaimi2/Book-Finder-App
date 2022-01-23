@@ -21,7 +21,7 @@ The book finder application allows you to search for any book and see the detail
 ## App Demo
 
 #### LogIn 
-<img src =images/login.gif"width="400">;
+<img src =images/login.gif"width="400">&emsp;
                                       
 #### Home Page                                    
                                       
